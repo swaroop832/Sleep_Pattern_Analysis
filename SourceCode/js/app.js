@@ -7,3 +7,4 @@ app.controller('MainCtrl',function ($scope,$http) {
       console.log($scope.data);
     });
 });
+
