@@ -9,7 +9,7 @@ $db = "csv_db";
 
 $conn = mysqli_connect($server,$username,$password,$db);
 
-$sql = "SELECT * FROM tbl_name";
+$sql = "SELECT * FROM table_2";
 
 $run = mysqli_query($conn, $sql);
 $output = "";
