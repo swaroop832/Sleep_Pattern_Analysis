@@ -12,7 +12,7 @@ if(isset($_GET['var1'])){
 $var1 = $_GET['var1'];
 }
 
-$sql = "SELECT * FROM `table_2` WHERE Day = '$var1'";
+$sql = "SELECT * FROM `table_3`";
 
 $run = mysqli_query($conn, $sql);
 $output = "";
@@ -21,8 +21,7 @@ if ($output != "") {$output .= ",";}
     $output .= '{"Date":"'  . $rows["Date"] . '",';
     $output .= '"Slept":"'   . $rows["Slept"]        . '",';
     $output .= '"Day":"'   . $rows["Day"]        . '",';
-    $output .= '"Got up":"'. $rows["Got up"]     . '"}';
-
+    $output .= '"Got up":"'. $rows["Got_up"]     . '"}';
 }
 $output ='{"records":['.$output.']}';
 $conn->close();

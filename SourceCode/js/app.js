@@ -45,7 +45,9 @@ app.controller('MainCtrl',function ($scope,$http) {
             hAxis: {title: 'Day Analysis',  titleTextStyle: {color: '#333'}},
             vAxis: {minValue: 0},
             height :500,
-            width : 875
+            width : 875,
+            pointShape: 'circle',
+            pointSize: 10,
         };
 
         let chart = new google.visualization.LineChart(document.getElementById('chart_div'));
@@ -92,7 +94,9 @@ app.controller('MainCtrl',function ($scope,$http) {
             hAxis: {title: 'Day Analysis',  titleTextStyle: {color: '#333'}},
             vAxis: {minValue: 0},
             height :500,
-            width : 875
+            width : 875,
+            pointShape: 'circle',
+            pointSize: 10
         };
         let chart = new google.visualization.LineChart(document.getElementById('chart2_div'));
         chart.draw(data, options);
