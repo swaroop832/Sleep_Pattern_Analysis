@@ -22,13 +22,13 @@ app.controller('MainCtrl',function ($scope,$http) {
             $scope.query2DataAvgTue=response.data.records[5].Avg_Duration;
             $scope.query2DataWed = response.data.records[6].Day;
             $scope.query2DataAvgWed=response.data.records[6].Avg_Duration;
-            drawChart();
+            drawChart2_1();
     });
 
     google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
+    google.charts.setOnLoadCallback(drawChart2_1);
 
-    function drawChart() {
+    function drawChart2_1() {
         let data = google.visualization.arrayToDataTable([
             ['Day', 'Avg_Duration'],
             [$scope.query2DataMon,  parseFloat($scope.query2DataAvgMon)],
@@ -56,7 +56,46 @@ app.controller('MainCtrl',function ($scope,$http) {
 
         $scope.query2_1Data = response.data.records;
         console.log($scope.query2_1Data);
+        $scope.query2_1DataFri = response.data.records[0].Day;
+        $scope.query2_1DataAvgFri=response.data.records[0].Avg_hft;
+        $scope.query2_1DataMon = response.data.records[1].Day;
+        $scope.query2_1DataAvgMon=response.data.records[1].Avg_hft;
+        $scope.query2_1DataSat = response.data.records[2].Day;
+        $scope.query2_1DataAvgSat=response.data.records[2].Avg_hft;
+        $scope.query2_1DataSun = response.data.records[3].Day;
+        $scope.query2_1DataAvgSun=response.data.records[3].Avg_hft;
+        $scope.query2_1DataThu = response.data.records[4].Day;
+        $scope.query2_1DataAvgThu=response.data.records[4].Avg_hft;
+        $scope.query2_1DataTue = response.data.records[5].Day;
+        $scope.query2_1DataAvgTue=response.data.records[5].Avg_hft;
+        $scope.query2_1DataWed = response.data.records[6].Day;
+        $scope.query2_1DataAvgWed=response.data.records[6].Avg_hft;
+        drawChart2_2();
+    });
 
-    })
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart2_2);
+    function drawChart2_2() {
+        let data = google.visualization.arrayToDataTable([
+            ['Day', 'Avg_Duration'],
+            [$scope.query2_1DataMon,  parseFloat($scope.query2_1DataAvgMon)],
+            [$scope.query2_1DataTue,  parseFloat($scope.query2_1DataAvgTue)],
+            [$scope.query2_1DataWed,  parseFloat($scope.query2_1DataAvgWed)],
+            [$scope.query2_1DataThu,  parseFloat($scope.query2_1DataAvgThu)],
+            [$scope.query2_1DataFri,  parseFloat($scope.query2_1DataAvgFri)],
+            [$scope.query2DataSat,  parseFloat($scope.query2_1DataAvgSat)],
+            [$scope.query2_1DataSun,  parseFloat($scope.query2_1DataAvgSun)]
+        ]);
+
+        let options = {
+            title: '',
+            hAxis: {title: 'Day Analysis',  titleTextStyle: {color: '#333'}},
+            vAxis: {minValue: 0},
+            height :500,
+            width : 875
+        };
+        let chart = new google.visualization.LineChart(document.getElementById('chart2_div'));
+        chart.draw(data, options);
+    }
 
 });
