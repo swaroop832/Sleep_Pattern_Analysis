@@ -53,7 +53,7 @@
             </button>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 tab-content">
+                    <div class="col-lg-10 col-lg-offset-1  tab-content">
                         <div id="home-content" class="tab-pane fade in active">
                             home
                         </div>
@@ -64,26 +64,52 @@
                             </div>
                         </div>
                         <div id="query2" class="tab-pane fade">
-                            
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Day
-                                        </th>
-                                        <th>
-                                            Avg Duration
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                   <tr ng-repeat="x in query2Data" >
-                                       <td>{{x.Day}}</td>
-                                       <td>{{x.Avg_Duration}}</td>
-                                   </tr>
-
-                                </tbody>
-                            </table>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                Day
+                                            </th>
+                                            <th>
+                                                Avg Duration
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="x in query2Data" >
+                                            <td>{{x.Day}}</td>
+                                            <td>{{x.Avg_Duration}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-5">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                Day
+                                            </th>
+                                            <th>
+                                                Avg Duration
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="x in query2_1Data" >
+                                            <td>{{x.Day}}</td>
+                                            <td>{{x.Avg_hft}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div id="chart_div" style="width: 1000px; height: 1000px;"></div>
+                            </div>
                         </div>
                         <div id="query3" class="tab-pane fade">
                             hello3
@@ -98,12 +124,8 @@
                             hello6
                         </div>                          
                     </div>
-                    
                 </div>
-               
             </div>
-           
-
         </div>
         <!-- /#page-content-wrapper -->
     </div>
@@ -113,6 +135,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="js/public/navbar.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
