@@ -30,7 +30,7 @@ app.controller('MainCtrl',function ($scope,$http) {
 
     function drawChart() {
         let data = google.visualization.arrayToDataTable([
-            ['Weekday', 'Avg_Duration'],
+            ['Day', 'Avg_Duration'],
             [$scope.query2DataMon,  parseFloat($scope.query2DataAvgMon)],
             [$scope.query2DataTue,  parseFloat($scope.query2DataAvgTue)],
             [$scope.query2DataWed,  parseFloat($scope.query2DataAvgWed)],
@@ -42,10 +42,10 @@ app.controller('MainCtrl',function ($scope,$http) {
 
         let options = {
             title: '',
-            hAxis: {title: 'WeekDay',  titleTextStyle: {color: '#333'}},
+            hAxis: {title: 'Day Analysis',  titleTextStyle: {color: '#333'}},
             vAxis: {minValue: 0},
             height :500,
-            width : 900
+            width : 875
         };
 
         let chart = new google.visualization.LineChart(document.getElementById('chart_div'));
