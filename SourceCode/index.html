@@ -58,9 +58,46 @@
                             home
                         </div>
                         <div id="query1" class="tab-pane fade">
-                            hello1
-                            <div>
-                                <p ng-repeat="x in data">Day : {{x.Day}}</p>
+                            <div class="col-md-5">
+                                <table class="table text-center">
+                                    <thead>
+                                    <tr>
+                                        <th style="text-align: center">
+                                            Day
+                                        </th>
+                                        <th style="text-align: center">
+                                            Count
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="x in query1_1Data" >
+                                        <td>{{x.Day}}</td>
+                                        <td>{{x.Count}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-5">
+                                <table class="table text-center">
+                                    <thead>
+                                    <tr>
+                                        <th style="text-align: center">
+                                            Day
+                                        </th>
+                                        <th style="text-align: center">
+                                            Count
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="x in query1_2Data" >
+                                        <td>{{x.Day}}</td>
+                                        <td>{{x.Count}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                         <div id="query2" class="tab-pane fade">

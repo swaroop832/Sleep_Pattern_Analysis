@@ -6,6 +6,20 @@ app.controller('MainCtrl',function ($scope,$http) {
     $http.get("php/sql.php?var1=Monday").then(function (response) {
       $scope.data = response.data.records;
     });
+
+    //query 1-1 starts here
+    $http.get("php/query1-1.php").then(function (response) {
+        $scope.query1_1Data = response.data.records;
+    });
+    //query 1-1 ends here
+
+    //query 1-2 starts here
+    $http.get("php/query1-2.php").then(function (response) {
+        $scope.query1_2Data = response.data.records;
+    });
+    //query 1-2 ends here
+
+    //query 2-1 starts here
     $http.get("php/query2-1.php").then(function (response) {
             $scope.query2Data = response.data.records;
             $scope.query2DataFri = response.data.records[0].Day;
@@ -53,11 +67,12 @@ app.controller('MainCtrl',function ($scope,$http) {
         let chart = new google.visualization.LineChart(document.getElementById('chart_div'));
         chart.draw(data, options);
     }
+    //query2-1 ends here
 
+    //query2-2 starts here
     $http.get("php/query2-2.php").then(function (response) {
 
         $scope.query2_1Data = response.data.records;
-        console.log($scope.query2_1Data);
         $scope.query2_1DataFri = response.data.records[0].Day;
         $scope.query2_1DataAvgFri=response.data.records[0].Avg_hft;
         $scope.query2_1DataMon = response.data.records[1].Day;
@@ -101,5 +116,7 @@ app.controller('MainCtrl',function ($scope,$http) {
         let chart = new google.visualization.LineChart(document.getElementById('chart2_div'));
         chart.draw(data, options);
     }
+
+    // query 2-2 ends here
 
 });
