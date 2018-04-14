@@ -2,33 +2,105 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sleep Analysis</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <title>Sleep Pattern Analysis</title>
+    <meta name="viewport" content="width=device-width">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/myStyle.css"  />
+    <link rel="stylesheet/less" type="text/css" href="css/navbar.less" />
+    
    
 </head>
 <body data-ng-app="app">
     <!--<div ng-controller="MainCtrl">
         <p ng-repeat="x in data">Date : {{x.Date}}</p>
     </div>-->
+   
+    <div id="wrapper">
+        <div class="overlay"></div>
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav nav-tabs">
+                <li class="sidebar-brand">
+                    <a href="#home-content" data-toggle="tab"> Sleep Pattern Analysis</a>
+                </li>
+                <li>
+                    <a href="#query1" data-toggle="tab"><i class="fa fa-fw fa-folder"></i> Query1</a>
+                </li>
+                <li>
+                    <a href="#query2" data-toggle="tab"><i class="fa fa-fw fa-file-o"></i> Query2</a>
+                </li>
+                <li>
+                    <a href="#query3" data-toggle="tab"><i class="fa fa-fw fa-file-o"></i> Query3</a>
+                </li>
+                <li>
+                    <a href="#query4" data-toggle="tab"><i class="fa fa-fw fa-file-o"></i> Query4</a>
+                </li>
+                <li>
+                    <a href="#query5" data-toggle="tab"><i class="fa fa-fw fa-file-o"></i> Query5</a>
+                </li>
+                <li>
+                    <a href="#query6" data-toggle="tab"><i class="fa fa-fw fa-file-o"></i> Query6</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+                <span class="hamb-middle"></span>
+                <span class="hamb-bottom"></span>
+            </button>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 tab-content">
+                        <div id="home-content" class="tab-pane fade in active">
+                            home
+                        </div>
+                        <div id="query1" class="tab-pane fade">
+                            hello1
+                        </div>
+                        <div id="query2" class="tab-pane fade">
+                            hello2
+                        </div> 
+                        <div id="query3" class="tab-pane fade">
+                            hello3
+                        </div> 
+                        <div id="query4" class="tab-pane fade">
+                            hello4
+                        </div> 
+                        <div id="query5" class="tab-pane fade">
+                            hello5
+                        </div> 
+                        <div id="query6" class="tab-pane fade">
+                            hello6
+                        </div>                          
+                    </div>
+                    
+                </div>
+               
+            </div>
+           
 
-    <div class="row">
-        <div class="col-md-6">
-            hi
         </div>
-        <div class="col-md-6">
-            hi
-        </div>
+        <!-- /#page-content-wrapper -->
     </div>
+    <!-- /#wrapper -->
 
+
+<<<<<<< HEAD
 <div ng-controller="MainCtrl">
     <p ng-repeat="x in data">Day : {{x.Day}}</p>
 </div>
+=======
+>>>>>>> origin/master
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.0/less.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/public/navbar.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
