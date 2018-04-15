@@ -217,4 +217,51 @@ app.controller('MainCtrl',function ($scope,$http) {
         chart.draw(data, options);
     }
     // query 2-2 ends here
+
+
+    //query 3 starts here
+//query 3 get dropdown values
+    $('#query3_dropdown1_options li').on('click', function () {
+        $scope.q3_dd_op1 = $(this).text();
+        $('.query3_dropdown1').html($(this).find('a').html());
+    });
+
+    $('#query3_dropdown2_options li').on('click', function () {
+        $scope.q3_dd_op2 = $(this).text();
+        $('.query3_dropdown2').html($(this).find('a').html());
+    });
+
+    $scope.query3_1 = function () {
+
+        if ($scope.q3_dd_op1 === "Bed time") {
+            slept_gotup_where = "(slept>='21:00:00' AND Slept<='23:59:00')";
+            slept_gotup_col = "slept";
+        }
+        else if ($scope.q3_dd_op1 === "Wake up time") {
+            slept_gotup_where = "(got_up>='00:00:00' AND got_up<='07:00:00')";
+            slept_gotup_col = "got_up";
+        }
+        else {
+            alert("Select Avg option");
+        }
+
+        if ($scope.q3_dd_op2 === "Month") {
+            group_by = "Month";
+        }
+        else if ($scope.q3_dd_op2 === "Day") {
+            group_by = "Day";
+        }
+        else {
+            alert("Select Day or Month");
+        }
+
+        if($scope.q3_dd_op1 != "" && $scope.q3_dd_op2 != ""){
+            $http.get("php/query3.php?var1="+slept_gotup_col+"&var2="+slept_gotup_where+"&var3="+group_by).then(function (response) {
+                $scope.query3Data = response.data.records;
+                console.log($scope.query3Data);
+            })
+        }
+
+
+    }
 });

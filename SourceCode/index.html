@@ -173,6 +173,49 @@
                         </div>
                         <div id="query3" class="tab-pane fade">
                             <h1>Rhythm of sleep</h1>
+                            <div class="row">
+                                <div class="col-md-3 dropdown" style="color:black">
+                                    <button class="btn btn-secondary dropdown-toggle query3_dropdown1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Avg<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" id="query3_dropdown1_options" role="menu" aria-labelledby="dLabel">
+                                        <li><a href="#">Bed time</a></li>
+                                        <li><a href="#">Wake up time</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-3 dropdown" style="color:black">
+                                    <button class="btn btn-secondary dropdown-toggle query3_dropdown2" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Avg per <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" id="query3_dropdown2_options" role="menu" aria-labelledby="dLabel">
+                                        <li><a href="#">Day</a></li>
+                                        <li><a href="#">Month</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-primary" ng-click="query3_1()">Primary</button>
+                                </div>
+                            </div>
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>
+                                        Month/Day
+                                    </th>
+                                    <th>
+                                        Avg_time
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tr ng-repeat="x in query3Data">
+                                   <td>
+                                       {{x.column_name}}
+                                   </td>
+                                    <td>
+                                        {{x.Avg}}
+                                    </td>
+                                </tr>
+                            </table>
                         </div> 
                         <div id="query4" class="tab-pane fade">
                             <h1>Frequency of bedtime hours</h1>
