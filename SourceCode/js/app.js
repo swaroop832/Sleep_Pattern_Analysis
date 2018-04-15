@@ -258,10 +258,79 @@ app.controller('MainCtrl',function ($scope,$http) {
         if($scope.q3_dd_op1 != "" && $scope.q3_dd_op2 != ""){
             $http.get("php/query3.php?var1="+slept_gotup_col+"&var2="+slept_gotup_where+"&var3="+group_by).then(function (response) {
                 $scope.query3Data = response.data.records;
-                
-                console.log($scope.query3Data);
+                if ($scope.q3_dd_op2 === "Day") {
+
+                $scope.query3_DataFri = response.data.records[0].column_name;
+                $scope.query3_DataAvgFri=response.data.records[0].Avg;
+                $scope.query3_DataMon = response.data.records[1].column_name;
+                $scope.query3_DataAvgMon=response.data.records[1].Avg;
+                $scope.query3_DataSat = response.data.records[2].column_name;
+                $scope.query3_DataAvgSat=response.data.records[2].Avg;
+                $scope.query3_DataSun = response.data.records[3].column_name;
+                $scope.query3_DataAvgSun=response.data.records[3].Avg;
+                $scope.query3_DataThu = response.data.records[4].column_name;
+                $scope.query3_DataAvgThu=response.data.records[4].Avg;
+                $scope.query3_DataTue = response.data.records[5].column_name;
+                $scope.query3_DataAvgTue=response.data.records[5].Avg;
+                $scope.query3_DataWed = response.data.records[6].column_name;
+                $scope.query3_DataAvgWed=response.data.records[6].Avg;
+                    drawTableq3_day();
+                }
+                if ($scope.q3_dd_op2 === "Month") {
+                    $scope.query3_DataFri = response.data.records[0].column_name;
+                    $scope.query3_DataAvgFri=response.data.records[0].Avg;
+                    $scope.query3_DataMon = response.data.records[1].column_name;
+                    $scope.query3_DataAvgMon=response.data.records[1].Avg;
+                    $scope.query3_DataSat = response.data.records[2].column_name;
+                    $scope.query3_DataAvgSat=response.data.records[2].Avg;
+                    $scope.query3_DataSun = response.data.records[3].column_name;
+                    $scope.query3_DataAvgSun=response.data.records[3].Avg;
+                    drawTableq3_month();
+                }
+
             })
         }
+
+        google.charts.load('current', {'packages':['table']});
+        google.charts.setOnLoadCallback(drawTableq3_day);
+
+        function drawTableq3_day() {
+            let data = new google.visualization.DataTable();
+            data.addColumn('string', 'Day');
+            data.addColumn('string', 'Time');
+            data.addRows([
+                [$scope.query3_DataMon,{f: $scope.query3_DataAvgMon}],
+                [$scope.query3_DataTue,   {f: $scope.query3_DataAvgTue}],
+                [$scope.query3_DataWed, {f: $scope.query3_DataAvgWed}],
+                [$scope.query3_DataThu,   {f: $scope.query3_DataAvgThu}],
+                [$scope.query3_DataFri,   {f: $scope.query3_DataAvgFri}],
+                [$scope.query3_DataSat,   {f: $scope.query3_DataAvgSat}],
+                [$scope.query3_DataSun,   {f: $scope.query3_DataAvgSun}]
+            ]);
+
+            let table = new google.visualization.Table(document.getElementById('chart3_div'));
+
+            table.draw(data, { width: '100%', height: '100%'});
+        }
+
+        function drawTableq3_month() {
+            let data = new google.visualization.DataTable();
+            data.addColumn('string', 'Month');
+            data.addColumn('string', 'Time');
+            //data.addRows(4);
+            data.addRows([
+                [$scope.query3_DataSun,   {f: $scope.query3_DataAvgSun}],
+                [$scope.query3_DataSat,   {f: $scope.query3_DataAvgSat}],
+                [$scope.query3_DataFri,   {f: $scope.query3_DataAvgFri}],
+                [$scope.query3_DataMon,   {f: $scope.query3_DataAvgMon}]
+            ]);
+            //data.setCell(1, 1, {'style': 'background-color: red;'});
+            //data.setCell(22, 2, 15, 'Fifteen', {style: 'font-style:bold; font-size:22px;'});
+            let table = new google.visualization.Table(document.getElementById('chart3_div'));
+
+            table.draw(data, { width: '100%', height: '100%'});
+        }
+
 
 
     }
