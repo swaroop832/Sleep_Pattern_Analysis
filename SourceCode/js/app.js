@@ -408,5 +408,20 @@ app.controller('MainCtrl',function ($scope,$http) {
         };
 
         chart.draw(dataTable, options);
+
+
+        //query 5 starts here
+        //query 5 get dropdown values
+        $('#query5_dropdown1_options li').on('click', function () {
+            $scope.q5_dd_op1 = $(this).text();
+            $('.query5_dropdown1').html($(this).find('a').html());
+        });
+
+        $scope.query5_1 = function () {
+            alert($scope.q5_dd_op1);
+            if ($scope.q5_dd_op1 === '6 - 7 hours') {
+
+            }
+        }
     }
 });

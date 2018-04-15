@@ -37,7 +37,7 @@
                     <a href="#query4" data-toggle="tab">Frequency</a>
                 </li>
                 <li>
-                    <a href="#query5" data-toggle="tab">Query5</a>
+                    <a href="#query5" data-toggle="tab">Duration</a>
                 </li>
                 <li>
                     <a href="#query6" data-toggle="tab"> Query6</a>
@@ -254,8 +254,26 @@
                             </div>
                         </div>
                         <div id="query5" class="tab-pane fade">
-                            hello5
-                        </div>
+                            <h3>Duration of sleep</h3>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-3 dropdown" style="color:black">
+                                    <button class="btn btn-secondary dropdown-toggle query5_dropdown1" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Duration <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" id="query5_dropdown1_options" role="menu" aria-labelledby="dLabel">
+                                        <li><a href="#">6 - 7 hours</a></li>
+                                        <li><a href="#">5 - 6 hours</a></li>
+                                        <li><a href="#">4 - 5 hours</a></li>
+                                        <li><a href="#">3 - 4 hours</a></li>
+                                        <li><a href="#">2 - 3 hours</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-primary" ng-click="query5_1()">Go</button>
+                                </div>
+                                
+                            </div>
                         <div id="query6" class="tab-pane fade">
                             hello6
                         </div>  
