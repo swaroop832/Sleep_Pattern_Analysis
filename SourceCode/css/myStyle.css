@@ -18,3 +18,16 @@ html {
 body{
     color:white !important;
 }
+
+#page-content-wrapper {
+    padding-top: 20px !important; 
+    width: 100%;
+}
+
+.btn{
+    width: 80%;
+}
+
+a{
+    text-decoration: none !important;
+}

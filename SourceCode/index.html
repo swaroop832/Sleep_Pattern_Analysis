@@ -14,14 +14,15 @@
         <p ng-repeat="x in data">Date : {{x.Date}}</p>
     </div>-->
    
-    <div id="wrapper">
+    <div id="wrapper" class="fullpage">
         <div class="overlay"></div>
         <!-- Sidebar -->
 
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            
             <ul class="nav sidebar-nav nav-tabs">
                 <li >
-                    <a href="#home-content" data-toggle="tab"> Sleep Analysis</a>
+                    <a href="#home-content" data-toggle="tab" class="sidebar-brand"> Sleep Analysis</a>
                 </li>
                 <li>
                     <a href="#query1" data-toggle="tab">Quality</a>
@@ -47,9 +48,9 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas">
-                <span class="hamb-top"></span>
-                <span class="hamb-middle"></span>
-                <span class="hamb-bottom"></span>
+                <span class="hamb-top hamcolor"></span>
+                <span class="hamb-middle hamcolor"></span>
+                <span class="hamb-bottom hamcolor"></span>
             </button>
             <div class="container">
                 <div class="row">
@@ -57,7 +58,8 @@
                         <div id="home-content" class="tab-pane fade in active">
                         </div>
                         <div id="query1" class="tab-pane fade">
-                            <h1>Quality of sleep</h1>
+                            <h3>Quality of sleep</h3>
+                            <br/>
                             <div class="row">
                                 <div class="col-md-3 dropdown" style="color:black">
                                     <button class="btn btn-secondary dropdown-toggle query1_dropdown1" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -87,7 +89,7 @@
                                     </ul>
                                 </div>
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-primary" ng-click="query1_1()">Primary</button>
+                                    <button type="button" class="btn btn-primary" ng-click="query1_1()">Go</button>
                                 </div>
                             </div>
                             <div class="row">
@@ -193,7 +195,7 @@
                                     </ul>
                                 </div>
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-primary" ng-click="query3_1()">Primary</button>
+                                    <button type="button" class="btn btn-primary" ng-click="query3_1()">Go</button>
                                 </div>
                             </div>
                             <table class="table text-center">
