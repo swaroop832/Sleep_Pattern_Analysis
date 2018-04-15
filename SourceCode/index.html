@@ -24,7 +24,7 @@
                     <a href="#home-content" data-toggle="tab"> Sleep Analysis</a>
                 </li>
                 <li>
-                    <a href="#query1" data-toggle="tab" >Quality</a>
+                    <a href="#query1" data-toggle="tab" ng-click="query1_1()">Quality</a>
                 </li>
                 <li>
                     <a href="#query2" data-toggle="tab" >Quantity</a>
@@ -55,10 +55,44 @@
                 <div class="row">
                     <div class="col-lg-10 col-lg-offset-1  tab-content">
                         <div id="home-content" class="tab-pane fade in active">
-                            home
                         </div>
                         <div id="query1" class="tab-pane fade">
                             <h1>Quality of sleep</h1>
+                            <div class="row">
+                                <div class="col-md-3 dropdown" style="color:black">
+                                    <button class="btn btn-secondary dropdown-toggle query1_dropdown1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Day/Night <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" id="query1_dropdown1_options" role="menu" aria-labelledby="dLabel">
+                                        <li><a href="#">Day</a></li>
+                                        <li><a href="#">Night</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-3 dropdown" style="color:black">
+                                    <button class="btn btn-secondary dropdown-toggle query1_dropdown2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Easy got up <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" id="query1_dropdown2_options" role="menu" aria-labelledby="dLabel">
+                                        <li><a href="#">Best</a></li>
+                                        <li><a href="#">Worst</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-3 dropdown" style="color:black">
+                                    <button class="btn btn-secondary dropdown-toggle query1_dropdown3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Feeling after <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" id="query1_dropdown3_options" role="menu" aria-labelledby="dLabel">
+                                        <li><a href="#">Best</a></li>
+                                        <li><a href="#">Worst</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-primary" ng-click="query1_dropdown_vals()">Primary</button>
+
+                                </div>
+
+
+                            </div>
                             <div class="row">
                                 <div class="col-md-5">
                                     <table class="table text-center">

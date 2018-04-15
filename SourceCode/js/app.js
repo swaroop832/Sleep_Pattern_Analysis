@@ -3,61 +3,85 @@ let app = angular.module("app",[]);
 
 app.controller('MainCtrl',function ($scope,$http) {
 
-    $http.get("php/sql.php?var1=Monday").then(function (response) {
-      $scope.data = response.data.records;
-    });
-
     //query 1-1 starts here
-    $http.get("php/query1-1.php").then(function (response) {
-        $scope.query1_1Data = response.data.records;
-        $scope.query1_1DataFri = response.data.records[0].Day;
-        $scope.query1_1DataAvgFri=response.data.records[0].Count;
-        $scope.query1_1DataMon = response.data.records[1].Day;
-        $scope.query1_1DataAvgMon=response.data.records[1].Count;
-        $scope.query1_1DataSat = response.data.records[2].Day;
-        $scope.query1_1DataAvgSat=response.data.records[2].Count;
-        $scope.query1_1DataSun = response.data.records[3].Day;
-        $scope.query1_1DataAvgSun=response.data.records[3].Count;
-        $scope.query1_1DataThu = response.data.records[4].Day;
-        $scope.query1_1DataAvgThu=response.data.records[4].Count;
-        $scope.query1_1DataTue = response.data.records[5].Day;
-        $scope.query1_1DataAvgTue=response.data.records[5].Count;
-        $scope.query1_1DataWed = response.data.records[6].Day;
-        $scope.query1_1DataAvgWed=response.data.records[6].Count;
-        drawChart1_1();
+//query 1 get dropdown values
+    $('#query1_dropdown1_options li').on('click', function () {
+        $scope.q1_dd_op1 = $(this).text();
+        $('.query1_dropdown1').html($(this).find('a').html());
     });
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart1_1);
-    function drawChart1_1() {
-        let data = google.visualization.arrayToDataTable([
-            ['Day', 'Avg_Duration'],
-            [$scope.query1_1DataMon,  parseFloat($scope.query1_1DataAvgMon)],
-            [$scope.query1_1DataTue,  parseFloat($scope.query1_1DataAvgTue)],
-            [$scope.query1_1DataWed,  parseFloat($scope.query1_1DataAvgWed)],
-            [$scope.query1_1DataThu,  parseFloat($scope.query1_1DataAvgThu)],
-            [$scope.query1_1DataFri,  parseFloat($scope.query1_1DataAvgFri)],
-            [$scope.query1_1DataSat,  parseFloat($scope.query1_1DataAvgSat)],
-            [$scope.query1_1DataSun,  parseFloat($scope.query1_1DataAvgSun)]
-        ]);
 
-        let options = {
-            title: '',
-            hAxis: {title: 'Day Analysis',  titleTextStyle: {color: '#333'}},
-            vAxis: {minValue: 0},
-            height :500,
-            width : 875,
-            
-            pieSliceText: 'label',
-            pieStartAngle: 100,
-            pieHole: 0.2,
-            slices: {  1: {offset: 0.2},
-                3: {offset: 0.3},
-                5: {offset: 0.4},
-                7: {offset: 0.5}}
-        };
-        let chart = new google.visualization.PieChart(document.getElementById('chart1_1div'));
-        chart.draw(data, options);
-    }
+    $('#query1_dropdown2_options li').on('click', function () {
+        $scope.q1_dd_op2 = $(this).text();
+        $('.query1_dropdown2').html($(this).find('a').html());
+    });
+
+    $('#query1_dropdown3_options li').on('click', function () {
+        $scope.q1_dd_op3 = $(this).text();
+        $('.query1_dropdown3').html($(this).find('a').html());
+    });
+
+    $scope.query1_dropdown_vals = function () {
+
+        alert($scope.q1_dd_op1);
+        alert($scope.q1_dd_op2);
+        alert($scope.q1_dd_op3);
+    };
+
+    $scope.query1_1 = function () {
+
+        $http.get("php/query1-1.php?").then(function (response) {
+            $scope.query1_1Data = response.data.records;
+            $scope.query1_1DataFri = response.data.records[0].Day;
+            $scope.query1_1DataAvgFri=response.data.records[0].Count;
+            $scope.query1_1DataMon = response.data.records[1].Day;
+            $scope.query1_1DataAvgMon=response.data.records[1].Count;
+            $scope.query1_1DataSat = response.data.records[2].Day;
+            $scope.query1_1DataAvgSat=response.data.records[2].Count;
+            $scope.query1_1DataSun = response.data.records[3].Day;
+            $scope.query1_1DataAvgSun=response.data.records[3].Count;
+            $scope.query1_1DataThu = response.data.records[4].Day;
+            $scope.query1_1DataAvgThu=response.data.records[4].Count;
+            $scope.query1_1DataTue = response.data.records[5].Day;
+            $scope.query1_1DataAvgTue=response.data.records[5].Count;
+            $scope.query1_1DataWed = response.data.records[6].Day;
+            $scope.query1_1DataAvgWed=response.data.records[6].Count;
+            drawChart1_1();
+        });
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart1_1);
+        function drawChart1_1() {
+            let data = google.visualization.arrayToDataTable([
+                ['Day', 'Avg_Duration'],
+                [$scope.query1_1DataMon,  parseFloat($scope.query1_1DataAvgMon)],
+                [$scope.query1_1DataTue,  parseFloat($scope.query1_1DataAvgTue)],
+                [$scope.query1_1DataWed,  parseFloat($scope.query1_1DataAvgWed)],
+                [$scope.query1_1DataThu,  parseFloat($scope.query1_1DataAvgThu)],
+                [$scope.query1_1DataFri,  parseFloat($scope.query1_1DataAvgFri)],
+                [$scope.query1_1DataSat,  parseFloat($scope.query1_1DataAvgSat)],
+                [$scope.query1_1DataSun,  parseFloat($scope.query1_1DataAvgSun)]
+            ]);
+
+            let options = {
+                title: '',
+                hAxis: {title: 'Day Analysis',  titleTextStyle: {color: '#333'}},
+                vAxis: {minValue: 0},
+                height :500,
+                width : 875,
+
+                pieSliceText: 'label',
+                pieStartAngle: 100,
+                pieHole: 0.2,
+                slices: {  1: {offset: 0.2},
+                    3: {offset: 0.3},
+                    5: {offset: 0.4},
+                    7: {offset: 0.5}}
+            };
+            let chart = new google.visualization.PieChart(document.getElementById('chart1_1div'));
+            chart.draw(data, options);
+        }
+    };
+
+
     //query 1-1 ends here
 
     //query 1-2 starts here
