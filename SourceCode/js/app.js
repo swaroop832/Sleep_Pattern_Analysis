@@ -397,7 +397,7 @@ app.controller('MainCtrl',function ($scope,$http) {
             [ 'No.of times slept b/w the time period', $scope.q4count22 , new Date(0,0,0,22,0,0), new Date(0,0,0,23,0,0) ],
             [ 'No.of times slept b/w the time period', $scope.q4count23 , new Date(0,0,0,23,0,0), new Date(0,0,0,24,0,0) ],
 
-        ])
+        ]);
 
         let options = {
             timeline: {groupByRowLabel: true, showRowLabels: false,  rowLabelStyle: { fontSize: 100 }, barLabelStyle: { fontSize: 20 }},
@@ -424,4 +424,6 @@ app.controller('MainCtrl',function ($scope,$http) {
             }
         }
     }
+
+    
 });
