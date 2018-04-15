@@ -331,7 +331,7 @@ app.controller('MainCtrl',function ($scope,$http) {
             table.draw(data, { width: '100%', height: '100%'});
         }
         };
-
+//query4 starts here
     $http.get("php/query4.php").then(function (response) {
         $scope.query4Data = response.data.records;
         $scope.q4count0 = response.data.records[0].Count;
@@ -408,7 +408,9 @@ app.controller('MainCtrl',function ($scope,$http) {
         };
         chart.draw(dataTable, options);
     }
+    //query 4 ends here
 
+    
     //query 5 starts here
     //query 5 get dropdown values
     $('#query5_dropdown1_options li').on('click', function () {
