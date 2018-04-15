@@ -419,10 +419,31 @@ app.controller('MainCtrl',function ($scope,$http) {
     });
 
     $scope.query5_1 = function () {
-        alert($scope.q5_dd_op1);
-        if ($scope.q5_dd_op1 === '6 - 7 hours') {
-
+        if ($scope.q5_dd_op1 === '> 8 hours') {
+            duration = '> 8 ';
         }
+        else if ($scope.q5_dd_op1 === '7 - 8 hours') {
+            duration = 'between 7.0 and 7.99';
+        }
+        else if ($scope.q5_dd_op1 === '6 - 7 hours') {
+            duration = 'between 6.0 and 6.99';
+        }
+        else if ($scope.q5_dd_op1 === '5 - 6 hours') {
+            duration = 'between 5.0 and 5.99';
+        }
+        else if ($scope.q5_dd_op1 === '4 - 5 hours') {
+            duration = 'between 4.0 and 4.99';
+        }
+        else if ($scope.q5_dd_op1 === '3 - 4 hours') {
+            duration = 'between 3.0 and 3.99';
+        }
+        else if ($scope.q5_dd_op1 === '< 3 hours') {
+            duration = '< 3';
+        }
+        else {
+            alert("Please select valid input");
+        }
+
     }
 
     
