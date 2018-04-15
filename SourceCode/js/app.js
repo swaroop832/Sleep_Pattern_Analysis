@@ -258,6 +258,7 @@ app.controller('MainCtrl',function ($scope,$http) {
         if($scope.q3_dd_op1 != "" && $scope.q3_dd_op2 != ""){
             $http.get("php/query3.php?var1="+slept_gotup_col+"&var2="+slept_gotup_where+"&var3="+group_by).then(function (response) {
                 $scope.query3Data = response.data.records;
+                
                 console.log($scope.query3Data);
             })
         }
