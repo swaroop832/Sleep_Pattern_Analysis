@@ -20,16 +20,28 @@ app.controller('MainCtrl',function ($scope,$http) {
         $('.query1_dropdown3').html($(this).find('a').html());
     });
 
-    $scope.query1_dropdown_vals = function () {
-
-        alert($scope.q1_dd_op1);
-        alert($scope.q1_dd_op2);
-        alert($scope.q1_dd_op3);
-    };
-
     $scope.query1_1 = function () {
 
-        $http.get("php/query1-1.php?").then(function (response) {
+        if($scope.q1_dd_op1 === "Night") {
+            var1 = "((slept>='21:00:00' AND Slept<='23:59:00') or (Slept>='00:00:00' and Slept<='03:00:00'))";
+        }
+        else if($scope.q1_dd_op1 === "Day") {
+            var1 = "((slept>='4:00:00' AND Slept<='20:59:00'))";
+        }
+        else{
+            alert("Select Day/Night");
+        }
+
+        if($scope.q1_dd_op2 === "Best" && $scope.q1_dd_op3 === "Best"){
+            rating= ">=3.5";
+        }
+        else if ($scope.q1_dd_op2 === "Worst" && $scope.q1_dd_op3 === "Worst"){
+            rating= "<=3.5";
+        }
+        else{
+            alert("Invalid selection");
+        }
+       $http.get("php/query1-1.php?var1="+var1+"&var2="+rating).then(function (response) {
             $scope.query1_1Data = response.data.records;
             $scope.query1_1DataFri = response.data.records[0].Day;
             $scope.query1_1DataAvgFri=response.data.records[0].Count;
@@ -47,6 +59,8 @@ app.controller('MainCtrl',function ($scope,$http) {
             $scope.query1_1DataAvgWed=response.data.records[6].Count;
             drawChart1_1();
         });
+
+
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawChart1_1);
         function drawChart1_1() {
@@ -85,7 +99,7 @@ app.controller('MainCtrl',function ($scope,$http) {
     //query 1-1 ends here
 
     //query 1-2 starts here
-    $http.get("php/query1-2.php").then(function (response) {
+ /*   $http.get("php/query1-2.php").then(function (response) {
         $scope.query1_2Data = response.data.records;
         $scope.query1_2DataFri = response.data.records[0].Day;
         $scope.query1_2DataAvgFri=response.data.records[0].Count;
@@ -103,6 +117,7 @@ app.controller('MainCtrl',function ($scope,$http) {
         $scope.query1_2DataAvgWed=response.data.records[6].Count;
     });
     //query 1-2 ends here
+    */
 
     //query 2-1 starts here
     $http.get("php/query2-1.php").then(function (response) {

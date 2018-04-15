@@ -24,7 +24,7 @@
                     <a href="#home-content" data-toggle="tab"> Sleep Analysis</a>
                 </li>
                 <li>
-                    <a href="#query1" data-toggle="tab" ng-click="query1_1()">Quality</a>
+                    <a href="#query1" data-toggle="tab">Quality</a>
                 </li>
                 <li>
                     <a href="#query2" data-toggle="tab" >Quantity</a>
@@ -60,7 +60,7 @@
                             <h1>Quality of sleep</h1>
                             <div class="row">
                                 <div class="col-md-3 dropdown" style="color:black">
-                                    <button class="btn btn-secondary dropdown-toggle query1_dropdown1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn btn-secondary dropdown-toggle query1_dropdown1" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Day/Night <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" id="query1_dropdown1_options" role="menu" aria-labelledby="dLabel">
@@ -69,7 +69,7 @@
                                     </ul>
                                 </div>
                                 <div class="col-md-3 dropdown" style="color:black">
-                                    <button class="btn btn-secondary dropdown-toggle query1_dropdown2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn btn-secondary dropdown-toggle query1_dropdown2" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Easy got up <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" id="query1_dropdown2_options" role="menu" aria-labelledby="dLabel">
@@ -78,7 +78,7 @@
                                     </ul>
                                 </div>
                                 <div class="col-md-3 dropdown" style="color:black">
-                                    <button class="btn btn-secondary dropdown-toggle query1_dropdown3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn btn-secondary dropdown-toggle query1_dropdown3" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Feeling after <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" id="query1_dropdown3_options" role="menu" aria-labelledby="dLabel">
@@ -87,14 +87,12 @@
                                     </ul>
                                 </div>
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-primary" ng-click="query1_dropdown_vals()">Primary</button>
-
+                                    <button type="button" class="btn btn-primary" ng-click="query1_1()">Primary</button>
                                 </div>
-
-
                             </div>
                             <div class="row">
-                                <div class="col-md-5">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-6">
                                     <table class="table text-center">
                                         <thead>
                                         <tr>
@@ -114,27 +112,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="col-md-1"></div>
-                                <div class="col-md-5">
-                                    <table class="table text-center">
-                                        <thead>
-                                        <tr>
-                                            <th style="text-align: center">
-                                                Day
-                                            </th>
-                                            <th style="text-align: center">
-                                                Count
-                                            </th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr ng-repeat="x in query1_2Data" >
-                                            <td>{{x.Day}}</td>
-                                            <td>{{x.Count}}</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <div class="col-md-2"></div>
                             </div>
                             <div class="row">
                                 <div id="chart1_1div"></div>
@@ -144,13 +122,13 @@
                             <h1>Quantity of sleep</h1>
                             <div class="row">
                                 <div class="col-md-5">
-                                    <table class="table table-striped">
+                                    <table class="table text-center">
                                         <thead>
                                         <tr>
-                                            <th>
+                                            <th style="text-align: center">
                                                 Day
                                             </th>
-                                            <th>
+                                            <th style="text-align: center">
                                                 Avg Duration
                                             </th>
                                         </tr>
@@ -165,13 +143,13 @@
                                 </div>
                                 <div class="col-md-1"></div>
                                 <div class="col-md-5">
-                                    <table class="table table-striped">
+                                    <table class="table text-center">
                                         <thead>
                                         <tr>
-                                            <th>
+                                            <th style="text-align: center">
                                                 Day
                                             </th>
-                                            <th>
+                                            <th style="text-align: center">
                                                 Avg Rating
                                             </th>
                                         </tr>

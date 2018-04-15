@@ -12,8 +12,12 @@ $conn = mysqli_connect($server,$username,$password,$db);
 if(isset($_GET['var1'])){
 $var1 = $_GET['var1'];
 }
+if(isset($_GET['var2'])){
+$var2 = $_GET['var2'];
+}
 
-$sql = "SELECT Day,count(*) as count1 FROM `table_2` WHERE ((slept>='21:00:00' AND Slept<='23:59:00') or (Slept>='00:00:00' and Slept<='03:00:00')) and ((`how felt afterwards`>=4) and (`How easy got up` >=4)) GROUP by Day";
+
+$sql = "SELECT Day,count(*) as count1 FROM `table_2` WHERE $var1 and ((`how felt afterwards`$var2) and (`How easy got up`$var2)) GROUP by Day";
 
 $run = mysqli_query($conn, $sql);
 
