@@ -6,13 +6,13 @@
 /*-------------------------------*/
 
 // BACKGROUND COLOR
-@bg-color: #2D3142;
+@bg-color: #26394E;
 
 // TEXT COLOR
 @text-color: #fff;
 
 // SIDEBAR LINK COLOR VARIABLES
-@side-color-1: #d69764;
+@side-color-1: #61887A;
 @side-color-2: darken(@side-color-3, 5%);
 @side-color-3: darken(@side-color-4, 5%);
 @side-color-4: @bg-color;
@@ -99,7 +99,7 @@ html {
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
-  background: #636363;
+  background: #ffff25;
   height: @full-height;
   left: 220px;
   margin-left: -220px;
@@ -164,7 +164,7 @@ html {
       position: absolute;
       top: 0;
       transition: width .2s ease-in;
-      width: 3px;
+      width: 0%;
       z-index: -1;
     }
     &:first-child {
@@ -220,7 +220,7 @@ html {
       }
     }
     a {
-      color: #dddddd;
+      color: #26394E;
       display: block;
       padding: 10px 15px 10px 30px;
       text-decoration: none;
@@ -234,16 +234,7 @@ html {
       }
     }
   }
-  .dropdown-menu {
-    background-color: #222222;
-    border-radius: 0;
-    border: none;
-    box-shadow: none;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    width: @full-width;
-  }
+
 }
 .sidebar-nav li a:hover, .sidebar-nav li a:active, .sidebar-nav li a:focus, .sidebar-nav li.open a:hover, .sidebar-nav li.open a:active, .sidebar-nav li.open a:focus {
   background-color: transparent;
@@ -468,3 +459,17 @@ html {
 body, html {background-color: @bg-color} body {h1,h2,h3,h4 {color:fadeout(@text-color, 10);}p, blockquote {color:fadeout(@text-color, 30);}a {color:fadeout(@text-color, 20);text-decoration:underline;}}
 
 
+// my additions
+.nav-tabs>li>a {
+    margin-right: 0px;
+    border-radius: 0px;
+}
+
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #555;
+    cursor: default;
+    background-color: azure;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}
