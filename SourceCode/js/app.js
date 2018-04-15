@@ -410,7 +410,6 @@ app.controller('MainCtrl',function ($scope,$http) {
     }
     //query 4 ends here
 
-    
     //query 5 starts here
     //query 5 get dropdown values
     $('#query5_dropdown1_options li').on('click', function () {
@@ -446,5 +445,5 @@ app.controller('MainCtrl',function ($scope,$http) {
 
     }
 
-    
+//query 5 ends here
 });
