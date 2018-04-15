@@ -225,7 +225,33 @@
                             </div>
                         </div>
                         <div id="query4" class="tab-pane fade">
-                            <h1>Frequency of bedtime hours</h1>
+                            <h3>Frequency of bedtime hours</h3>
+                            <br/>
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <table class="table text-center">
+                                        <thead>
+                                        <tr>
+                                            <th style="text-align: center">
+                                                Time
+                                            </th>
+                                            <th style="text-align: center">
+                                                No.of Times Slept
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="x in query4Data" >
+                                            <td>{{x.Time}}</td>
+                                            <td>{{x.Count}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="chartq4_div" style="margin-left: -123px;"></div>
+                            </div>
                         </div>
                         <div id="query5" class="tab-pane fade">
                             hello5

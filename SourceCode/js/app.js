@@ -330,8 +330,83 @@ app.controller('MainCtrl',function ($scope,$http) {
 
             table.draw(data, { width: '100%', height: '100%'});
         }
+        };
 
+    $http.get("php/query4.php").then(function (response) {
+        $scope.query4Data = response.data.records;
+        $scope.q4count0 = response.data.records[0].Count;
+        $scope.q4count1 = response.data.records[1].Count;
+        $scope.q4count2 = response.data.records[2].Count;
+        $scope.q4count3 = response.data.records[3].Count;
+        $scope.q4count4 = response.data.records[4].Count;
+        $scope.q4count5 = response.data.records[5].Count;
+        $scope.q4count6 = response.data.records[6].Count;
+        $scope.q4count7 = response.data.records[7].Count;
+        $scope.q4count8 = response.data.records[8].Count;
+        $scope.q4count9 = response.data.records[9].Count;
+        $scope.q4count10 = response.data.records[10].Count;
+        $scope.q4count11 = response.data.records[11].Count;
+        $scope.q4count12 = response.data.records[12].Count;
+        $scope.q4count13 = response.data.records[13].Count;
+        $scope.q4count14 = response.data.records[14].Count;
+        $scope.q4count15 = response.data.records[15].Count;
+        $scope.q4count16 = response.data.records[16].Count;
+        $scope.q4count17 = response.data.records[17].Count;
+        $scope.q4count18 = response.data.records[18].Count;
+        $scope.q4count19 = response.data.records[19].Count;
+        $scope.q4count20 = response.data.records[20].Count;
+        $scope.q4count21 = response.data.records[21].Count;
+        $scope.q4count22 = response.data.records[22].Count;
+        $scope.q4count23 = response.data.records[23].Count;
+        drawChartq4();
+        });
+    google.charts.load("current", {packages:["timeline"]});
+    google.charts.setOnLoadCallback(drawChartq4);
+    function drawChartq4() {
+        let container = document.getElementById('chartq4_div');
+        let chart = new google.visualization.Timeline(container);
+        let dataTable = new google.visualization.DataTable();
 
+        dataTable.addColumn({ type: 'string', id: 'Role' });
+        dataTable.addColumn({ type: 'string', id: 'Name' });
+        dataTable.addColumn({ type: 'date', id: 'Start' });
+        dataTable.addColumn({ type: 'date', id: 'End' });
+        dataTable.addRows([
+            [ 'No.of times slept b/w the time period', $scope.q4count0 , new Date(0,0,0,0,0,0), new Date(0,0,0,1,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count1 , new Date(0,0,0,1,0,0), new Date(0,0,0,2,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count2 , new Date(0,0,0,2,0,0), new Date(0,0,0,3,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count3 , new Date(0,0,0,3,0,0), new Date(0,0,0,4,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count4 , new Date(0,0,0,4,0,0), new Date(0,0,0,5,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count5 , new Date(0,0,0,5,0,0), new Date(0,0,0,6,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count6 , new Date(0,0,0,6,0,0), new Date(0,0,0,7,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count7 , new Date(0,0,0,7,0,0), new Date(0,0,0,8,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count8 , new Date(0,0,0,8,0,0), new Date(0,0,0,9,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count9 , new Date(0,0,0,9,0,0), new Date(0,0,0,10,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count10 , new Date(0,0,0,10,0,0), new Date(0,0,0,11,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count11 , new Date(0,0,0,11,0,0), new Date(0,0,0,12,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count12 , new Date(0,0,0,12,0,0), new Date(0,0,0,13,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count13 , new Date(0,0,0,13,0,0), new Date(0,0,0,14,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count14 , new Date(0,0,0,14,0,0), new Date(0,0,0,15,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count15 , new Date(0,0,0,15,0,0), new Date(0,0,0,16,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count16 , new Date(0,0,0,16,0,0), new Date(0,0,0,17,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count17 , new Date(0,0,0,17,0,0), new Date(0,0,0,18,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count18 , new Date(0,0,0,18,0,0), new Date(0,0,0,19,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count19 , new Date(0,0,0,19,0,0), new Date(0,0,0,20,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count20 , new Date(0,0,0,20,0,0), new Date(0,0,0,21,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count21 , new Date(0,0,0,21,0,0), new Date(0,0,0,22,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count22 , new Date(0,0,0,22,0,0), new Date(0,0,0,23,0,0) ],
+            [ 'No.of times slept b/w the time period', $scope.q4count23 , new Date(0,0,0,23,0,0), new Date(0,0,0,24,0,0) ],
 
+        ])
+
+        let options = {
+            timeline: {groupByRowLabel: true, showRowLabels: false,  rowLabelStyle: { fontSize: 100 }, barLabelStyle: { fontSize: 20 }},
+            'width':1300,
+            'height':500,
+            //avoidOverlappingGridLines: false,
+
+        };
+
+        chart.draw(dataTable, options);
     }
 });
