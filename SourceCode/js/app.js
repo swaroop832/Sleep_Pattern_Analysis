@@ -20,7 +20,10 @@ app.controller('MainCtrl',function ($scope,$http) {
         $('.query1_dropdown3').html($(this).find('a').html());
     });
 
+    $('#query1_part').hide();
+
     $scope.query1_1 = function () {
+
 
         if($scope.q1_dd_op1 === "Night") {
             var1 = "((slept>='21:00:00' AND Slept<='23:59:00') or (Slept>='00:00:00' and Slept<='03:00:00'))";
@@ -60,6 +63,7 @@ app.controller('MainCtrl',function ($scope,$http) {
             drawChart1_1();
         });
 
+        $('#query1_part').show();
 
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawChart1_1);
@@ -76,12 +80,10 @@ app.controller('MainCtrl',function ($scope,$http) {
             ]);
 
             let options = {
-                title: '',
                 hAxis: {title: 'Day Analysis',  titleTextStyle: {color: '#333'}},
                 vAxis: {minValue: 0},
                 height :500,
                 width : 875,
-
                 pieSliceText: 'label',
                 pieStartAngle: 100,
                 pieHole: 0.2,
@@ -155,8 +157,8 @@ app.controller('MainCtrl',function ($scope,$http) {
         ]);
 
         let options = {
-            title: '',
-            hAxis: {title: 'Day Analysis',  titleTextStyle: {color: '#333'}},
+
+            hAxis: {title: 'Day',  titleTextStyle: {color: '#333'}},
             vAxis: {minValue: 0},
             height :500,
             width : 875,
@@ -170,7 +172,8 @@ app.controller('MainCtrl',function ($scope,$http) {
     //query2-1 ends here
 
     //query2-2 starts here
-    $http.get("php/query2-2.php").then(function (response) {
+   /* $http.get("php/query2-2.php").then(function (response) {
+
 
         $scope.query2_1Data = response.data.records;
         $scope.query2_1DataFri = response.data.records[0].Day;
@@ -217,7 +220,7 @@ app.controller('MainCtrl',function ($scope,$http) {
         chart.draw(data, options);
     }
     // query 2-2 ends here
-
+*/
 
     //query 3 starts here
 //query 3 get dropdown values
@@ -230,6 +233,7 @@ app.controller('MainCtrl',function ($scope,$http) {
         $scope.q3_dd_op2 = $(this).text();
         $('.query3_dropdown2').html($(this).find('a').html());
     });
+    $('#query3_part').hide();
 
     $scope.query3_1 = function () {
 
@@ -288,7 +292,8 @@ app.controller('MainCtrl',function ($scope,$http) {
                     drawTableq3_month();
                 }
 
-            })
+            });
+            $('#query3_part').show();
         }
 
         google.charts.load('current', {'packages':['table']});
@@ -332,6 +337,7 @@ app.controller('MainCtrl',function ($scope,$http) {
         }
         };
 //query4 starts here
+
     $http.get("php/query4.php").then(function (response) {
         $scope.query4Data = response.data.records;
         $scope.q4count0 = response.data.records[0].Count;
@@ -400,11 +406,10 @@ app.controller('MainCtrl',function ($scope,$http) {
         ]);
 
         let options = {
-            timeline: {groupByRowLabel: true, showRowLabels: false,  rowLabelStyle: { fontSize: 100 }, barLabelStyle: { fontSize: 20 }},
+            timeline: {groupByRowLabel: true, showRowLabels: false,  rowLabelStyle: { fontSize: 100 }, barLabelStyle: { fontSize: 15 }},
             'width':1300,
             'height':500,
             //avoidOverlappingGridLines: false,
-
         };
         chart.draw(dataTable, options);
     }
@@ -416,7 +421,7 @@ app.controller('MainCtrl',function ($scope,$http) {
         $scope.q5_dd_op1 = $(this).text();
         $('.query5_dropdown1').html($(this).find('a').html());
     });
-
+    $('#query5_part').hide();
     $scope.query5_1 = function () {
         if ($scope.q5_dd_op1 === '> 8 hours') {
             duration = '> 8 ';
@@ -443,6 +448,175 @@ app.controller('MainCtrl',function ($scope,$http) {
             alert("Please select valid input");
         }
 
+        $http.get("php/query5.php?var1="+duration).then(function (response) {
+            $scope.query5Data = response.data.records;
+            if ($scope.q5_dd_op1 === '6 - 7 hours') {
+                $scope.q5data0 = response.data.records[0].rating_after;
+                $scope.q5data0_count = response.data.records[0].count1;
+                $scope.q5data1 = response.data.records[1].rating_after;
+                $scope.q5data1_count = response.data.records[1].count1;
+                $scope.q5data2 = response.data.records[2].rating_after;
+                $scope.q5data2_count = response.data.records[2].count1;
+                $scope.q5data3 = response.data.records[3].rating_after;
+                $scope.q5data3_count = response.data.records[3].count1;
+                $scope.q5data4 = response.data.records[4].rating_after;
+                $scope.q5data4_count = response.data.records[4].count1;
+                $scope.q5data5 = response.data.records[5].rating_after;
+                $scope.q5data5_count = response.data.records[5].count1;
+                console.log($scope.query5Data);
+                drawChartq5_1();
+
+            }
+            if ($scope.q5_dd_op1 === '> 8 hours') {
+                $scope.q5data0_count = response.data.records[0].count1;
+                $scope.q5data1_count = response.data.records[1].count1;
+                $scope.q5data2_count = response.data.records[2].count1;
+                $scope.q5data3_count = response.data.records[3].count1;
+                drawChartq5_2();
+            }
+            if ($scope.q5_dd_op1 === '7 - 8 hours') {
+                $scope.q5data0_count = response.data.records[0].count1;
+                $scope.q5data1_count = response.data.records[1].count1;
+                $scope.q5data2_count = response.data.records[2].count1;
+                drawChartq5_3();
+            }
+            if ($scope.q5_dd_op1 === '5 - 6 hours') {
+                $scope.q5data0_count = response.data.records[0].count1;
+                $scope.q5data1_count = response.data.records[1].count1;
+                $scope.q5data2_count = response.data.records[2].count1;
+                $scope.q5data3_count = response.data.records[3].count1;
+                $scope.q5data4_count = response.data.records[4].count1;
+                $scope.q5data5_count = response.data.records[5].count1;
+                drawChartq5_4();
+            }
+            $('#query5_part').show();
+        });
+//charts for query 5 start
+        google.charts.load('current', {packages: ['corechart', 'bar']});
+        google.charts.setOnLoadCallback(drawChartq5_1);
+
+        function drawChartq5_1() {
+
+            let data = google.visualization.arrayToDataTable([
+                ['Rating','Count'],
+                [2.5, parseInt($scope.q5data0_count)],
+                [3.0, parseInt($scope.q5data1_count)],
+                [3.5, parseInt($scope.q5data2_count)],
+                [4.0, parseInt($scope.q5data3_count)],
+                [4.5, parseInt($scope.q5data4_count)],
+                [5.0, parseInt($scope.q5data5_count)],
+            ]);
+
+            let options = {
+                title: 'Ratings by user',
+                chartArea: {width: '50%'},
+                hAxis: {
+                    title: 'Count',
+                    minValue: 0
+                },
+                vAxis: {
+                    title: 'Rating',
+                   // scaleType: 'log'
+                },
+                height:500,
+                width : 875
+            };
+
+            let chart = new google.visualization.BarChart(document.getElementById('chartq5_div'));
+
+            chart.draw(data, options);
+        }
+
+        function drawChartq5_2() {
+
+            let data = google.visualization.arrayToDataTable([
+                ['Rating','Count'],
+                [3.5, parseInt($scope.q5data0_count)],
+                [4.0, parseInt($scope.q5data1_count)],
+                [4.5, parseInt($scope.q5data2_count)],
+                [5.0, parseInt($scope.q5data3_count)],
+            ]);
+
+            let options = {
+                title: 'Ratings by user',
+                chartArea: {width: '50%'},
+                hAxis: {
+                    title: 'Count',
+                    minValue: 0
+                },
+                vAxis: {
+                    title: 'Rating',
+                  //  scaleType: 'log'
+                },
+                height:500,
+                width : 875
+            };
+
+            let chart = new google.visualization.BarChart(document.getElementById('chartq5_div'));
+
+            chart.draw(data, options);
+        }
+        function drawChartq5_3() {
+
+            let data = google.visualization.arrayToDataTable([
+                ['Rating','Count'],
+                [3.5, parseInt($scope.q5data0_count)],
+                [4.5, parseInt($scope.q5data1_count)],
+                [5.0, parseInt($scope.q5data2_count)],
+            ]);
+
+            let options = {
+                title: 'Ratings by user',
+                chartArea: {width: '50%'},
+                hAxis: {
+                    title: 'Count',
+                    minValue: 0
+                },
+                vAxis: {
+                    title: 'Rating',
+                   // scaleType: 'log'
+                },
+                height:500,
+                width : 875
+            };
+
+            let chart = new google.visualization.BarChart(document.getElementById('chartq5_div'));
+
+            chart.draw(data, options);
+        }
+        function drawChartq5_4() {
+
+            let data = google.visualization.arrayToDataTable([
+                ['Rating','Count'],
+                [2.0, parseInt($scope.q5data0_count)],
+                [3.0, parseInt($scope.q5data1_count)],
+                [3.5, parseInt($scope.q5data2_count)],
+                [4.0, parseInt($scope.q5data3_count)],
+                [4.5, parseInt($scope.q5data4_count)],
+                [5.0, parseInt($scope.q5data5_count)],
+            ]);
+
+            let options = {
+                title: 'Ratings by user',
+                chartArea: {width: '50%'},
+                hAxis: {
+                    title: 'Count',
+                    minValue: 0
+                },
+                vAxis: {
+                    title: 'Rating',
+                   // scaleType: 'log'
+                },
+                height:500,
+                width : 875
+            };
+
+            let chart = new google.visualization.BarChart(document.getElementById('chartq5_div'));
+
+            chart.draw(data, options);
+        }
+
+        //charts ends here
     }
 
 //query 5 ends here

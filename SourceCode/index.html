@@ -9,7 +9,7 @@
     <link rel="stylesheet/less" type="text/css" href="css/navbar.less" />
 
 </head>
-<body data-ng-app="app" ng-controller="MainCtrl">
+<body data-ng-app="app" ng-controller="MainCtrl" id=".background-image-home">
     <!--<div ng-controller="MainCtrl">
         <p ng-repeat="x in data">Date : {{x.Date}}</p>
     </div>-->
@@ -38,9 +38,6 @@
                 </li>
                 <li>
                     <a href="#query5" data-toggle="tab">Duration</a>
-                </li>
-                <li>
-                    <a href="#query6" data-toggle="tab"> Query6</a>
                 </li>
             </ul>
         </nav>
@@ -92,6 +89,8 @@
                                     <button type="button" class="btn btn-primary" ng-click="query1_1()">Go</button>
                                 </div>
                             </div>
+                            <br>
+                            <div id="query1_part">
                             <div class="row">
                                 <div class="col-md-2"></div>
                                 <div class="col-md-6">
@@ -116,15 +115,21 @@
                                 </div>
                                 <div class="col-md-2"></div>
                             </div>
+                            <br>
                             <div class="row">
                                 <div id="chart1_1div"></div>
+                            </div>
+                            <div class="text-center">
+                                <h6><i>Donut Chart Showing Quality of sleep</i></h6>
+                            </div>
                             </div>
                         </div>
                         <div id="query2" class="tab-pane fade">
                             <h3>Quantity of sleep</h3>
                             <br/>
                             <div class="row">
-                                <div class="col-md-5">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-6">
                                     <table class="table text-center">
                                         <thead>
                                         <tr>
@@ -144,39 +149,18 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <div class="col-md-1"></div>
-                                <div class="col-md-5">
-                                    <table class="table text-center">
-                                        <thead>
-                                        <tr>
-                                            <th style="text-align: center">
-                                                Day
-                                            </th>
-                                            <th style="text-align: center">
-                                                Avg Rating
-                                            </th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr ng-repeat="x in query2_1Data" >
-                                            <td>{{x.Day}}</td>
-                                            <td>{{x.Avg_hft}}</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
                             </div>
+                            <br>
                             <div>
                                 <div id="chart_div"></div>
                             </div>
-
-                            <div>
-                                <div id="chart2_div"></div>
+                            <div class="text-center">
+                                <h6><i>Line Chart Representing the Quantity of Sleep</i></h6>
                             </div>
                         </div>
                         <div id="query3" class="tab-pane fade">
                             <h3>Rhythm of sleep</h3>
-                            <br />
+                            <br/>
                             <div class="row">
                                 <div class="col-md-3 dropdown" style="color:black">
                                     <button class="btn btn-secondary dropdown-toggle query3_dropdown1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -200,6 +184,8 @@
                                     <button type="button" class="btn btn-primary" ng-click="query3_1()">Go</button>
                                 </div>
                             </div>
+                            <br>
+                            <div id="query3_part">
                             <table class="table text-center">
                                 <thead>
                                 <tr>
@@ -207,7 +193,7 @@
                                         Month/Day
                                     </th>
                                     <th style="text-align: center">
-                                        Avg_time
+                                        Average time
                                     </th>
                                 </tr>
                                 </thead>
@@ -220,13 +206,18 @@
                                     </td>
                                 </tr>
                             </table>
+                                <br>
                             <div class="row">
                                 <div id="chart3_div"></div>
                             </div>
+                                <div class="text-center">
+                                    <h5><i>Table Chart representing the Rythm of Sleep</i></h5>
+                                </div>
+                            </div>
                         </div>
                         <div id="query4" class="tab-pane fade">
-                            <h3>Frequency of bedtime hours</h3>
-                            <br/>
+                            <h3>Frequency of Bedtime Hours</h3>
+                            <div id="query4_part">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
                                     <table class="table text-center">
@@ -236,7 +227,7 @@
                                                 Time
                                             </th>
                                             <th style="text-align: center">
-                                                No.of Times Slept
+                                                Number of Times Slept
                                             </th>
                                         </tr>
                                         </thead>
@@ -249,13 +240,18 @@
                                     </table>
                                 </div>
                             </div>
+                            <br>
+                                <div class="text-center">
+                                    <h6><i>Timeline Chart representing the Frequency of Bedtime Hours</i></h6>
+                                </div>
                             <div>
                                 <div id="chartq4_div" style="margin-left: -123px;"></div>
+                            </div>
                             </div>
                         </div>
                         <div id="query5" class="tab-pane fade">
                             <h3>Duration of sleep</h3>
-                            <br />
+                            <br/>
                             <div class="row">
                                 <div class="col-md-3 dropdown" style="color:black">
                                     <button class="btn btn-secondary dropdown-toggle query5_dropdown1" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -274,14 +270,43 @@
                                 <div class="col-md-3">
                                     <button type="button" class="btn btn-primary" ng-click="query5_1()">Go</button>
                                 </div>
-                                
+                                <br>
+                                <div id="query5_part">
+                                <div>
+                                <div class="row">
+                                    <div class="col-md-8 col-md-offset-2">
+                                        <br>
+                                        <table class="table text-center">
+                                            <thead>
+                                            <tr>
+                                                <th style="text-align: center">
+                                                    How Felt After Sleep Rating
+                                                </th>
+                                                <th style="text-align: center">
+                                                    Count
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr ng-repeat="x in query5Data" >
+                                                <td>{{x.rating_after}}</td>
+                                                <td>{{x.count1}}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
-                        <div id="query6" class="tab-pane fade">
-                            hello6
-                        </div>  
+                                    <br>
+                                    <div class="text-center">
+                                        <h6><i>Bar Chart representing the Duration of Sleep</i></h6>
+                                    </div>
+                            <div>
+                                <div id="chartq5_div"></div>
+                            </div>
+                                </div>
+                            </div>
                         <div class="col-md-2"></div>
-                    </div>
-                                                
                     </div>
                 </div>
             </div>

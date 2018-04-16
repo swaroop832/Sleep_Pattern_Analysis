@@ -19,15 +19,15 @@ if(isset($_GET['var3'])){
 $var3 = $_GET['var3'];
 }
 
-$sql = "SELECT SEC_TO_TIME(AVG(TIME_TO_SEC($var1)))  avg , $var3 as column_name FROM `table_3` where $var2 group by $var3";
+$sql = "SELECT (`How felt afterwards`) as rating_after,COUNT(*) as count1 FROM `tbl_name` where (slept between '21:00' and '3:00') and (duration $var1) GROUP by (`How felt afterwards`)";
 
 $run = mysqli_query($conn, $sql);
 
 $output = "";
 while( $rows = mysqli_fetch_assoc($run)){
 if ($output != "") {$output .= ",";}
-    $output .= '{"column_name":"'  . $rows["column_name"] . '",';
-    $output .= '"Avg":"'. $rows["avg"]     . '"}';
+    $output .= '{"rating_after":"'  . $rows["rating_after"] . '",';
+    $output .= '"count1":"'. $rows["count1"]     . '"}';
 }
 $output ='{"records":['.$output.']}';
 $conn->close();
